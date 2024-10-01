@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CestaCheia</title>
+    <link rel="icon" href="logo.ico" type="image/png">
+    <link rel="stylesheet" href="CompraRealizada.css">
+    <script src="CompraRealizada.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="logo-container">
+                <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="30">
+            </div>
+            <div class="text-container">
+                <h3>CestaCheia</h3>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+        </header>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="fas fa-home-alt"></i> Home</a></li>
+                <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+            </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <main>
+            <div class="content">
+                <h1>Compra Realizada Com<br> Sucesso!</h1>
+                <div class="container">
+                    <div class="image-container">
+                        <img src="imagem10.png" alt="imagem 10" class="imagem10">
+                    </div>
+                    <div class="message">
+                        <p>Você será notificado quando <br>sua compra sair para entrega.</p>
+                        <div class="buttons">
+                            <button type="button" class="rectangle" onclick="window.location.href='menuinicial.html'">Voltar</button><br>
+                            <button type="button" class="rectangle" onclick="window.location.href='cancelar.html'">Cancelar</button><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

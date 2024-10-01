@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="AlterarSenha.css">
+    <script src="AlterarSenha.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo">
+                </div>
+                <div class="text-container">
+                    <h1>Alterar Senha.</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="image-container">
+                <img src="imagem04.png" alt="Imagem 04" class="imagem04">
+            </div>
+            <div class="alterar-senha">
+                <form id="form" class="form">
+                    <p class="text">Digite sua nova senha:</p>
+                    <div class="frame-1">
+                        <input type="password" id="password" name="password" placeholder="Nova Senha" required><br>
+                        <i class="fa fa-eye" id="togglePassword1" style="cursor: pointer;"></i>
+                        <span class="error" id="passwordError"></span><br>
+                    </div>
+                    <div class="frame-2">
+                        <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmar Senha" required><br>
+                        <i class="fa fa-eye" id="togglePassword2" style="cursor: pointer;"></i>
+                        <span class="error" id="confirmpasswordError"></span><br>
+                    </div>
+                    <div class="alterar">
+                        <button type="button" class="rectangle" onclick="window.location.href='SenhaAlterada.html'">Alterar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

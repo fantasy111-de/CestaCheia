@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="logo.ico" type="image/png">
+        <title>CestaCheia</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="saiu.css">
+        <script src="saiu.js" defer></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <header>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="30">
+                </div>
+                <div class="title-container">
+                    <h3>CestaCheia</h3>
+                </div>
+                <div class="search-bar">
+                    <button class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <input type="text" placeholder="Pesquisar">
+                </div>
+            </header>
+            <div class="sidebar" id="sidebar">
+                <ul>
+                    <li><a href="menuinicial.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                    <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                </ul>
+            </div>
+            <div class="overlay" id="overlay"></div>
+            <main>
+                <div class="text-container">
+                    <h1>Sua compra saiu para entrega.</h1>
+                </div>
+                <div class="image-container">
+                    <img src="imagem12.png" alt="Imagem 12" class="imagem12">
+                </div>
+                <div class="buttons">
+                    <button type="button" class="rectangle" onclick="window.location.href='menuinicial.html'">Retornar ao Menu</button><br>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

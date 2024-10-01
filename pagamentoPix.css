@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row; /* Coloca os elementos lado a lado */
+    gap: 15px;
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    align-items: center; /* Centraliza os elementos verticalmente */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    padding: 5px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Colocado acima de tudo, exceto da barra lateral */
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    position: absolute;
+    left: 10px;
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+}
+
+.logo {
+    height: 30px;
+    margin-right: 4px;
+}
+
+.text-container {
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 2px 5px;
+    background-color: #fff;
+    margin-left: 25px;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.search-icon i {
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover i {
+    color: #f0f0f0;
+}
+
+input[type="text"] {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+    background: transparent;
+    outline: none;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #000;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 60px;
+    left: -250px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.sidebar.active {
+    transform: translateX(250px);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #f0f0f0;
+}
+
+.code {
+    margin-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.qrcode {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.id {
+}
+
+.copy-id {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    animation: buttonFadeIn 1s ease-out;
+    margin-top: 20px;
+}
+
+.copy-id:hover {
+    background-color: dimgray;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Altera para coluna em telas menores */
+        padding: 10px;
+    }
+
+    .logo-container {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .search-bar {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+
+    .sidebar.active {
+        transform: translateX(200px);
+    }
+}
+
+@media (max-width: 480px) {
+    .text-container {
+        font-size: 22px;
+    }
+
+    .search-icon i {
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        font-size: 12px;
+        width: 150px;
+    }
+
+    .sidebar {
+        width: 150px;
+        left: -150px;
+    }
+
+    .sidebar.active {
+        transform: translateX(150px);
+    }
+}

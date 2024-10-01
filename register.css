@@ -1,0 +1,261 @@
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-container {
+    margin-bottom: 10px;
+    animation: logoScale 1s ease-out;
+}
+
+@keyframes logoScale {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo {
+    width: auto;
+    height: 90px;
+}
+
+.text-container {
+    text-align: left;
+}
+
+.text-container h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 48px;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    animation: imageSlide 1s ease-out;
+
+}
+
+@keyframes imageSlide {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.image03 {
+    max-width: 100%;
+    height: auto;
+}
+
+.registro {
+    background-color: black;
+    padding: 10px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    column-gap: 10px;
+    margin-top: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.registro h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #fff;
+    align-self: flex-start;
+    margin-top: 5px;
+    margin-left: 10px;
+    border-bottom: 2px dotted #fff;
+    padding-bottom: 10px;
+}
+
+.form {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+.form input[type="email"],
+.form input[type="text"],
+.form input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+.form input[type="email"]:focus,
+.form input[type="text"]:focus,
+.form input[type="password"]:focus {
+    outline: none;
+    border-color: #57a;
+    box-shadow: 0 0 8px #57a;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 30px;
+}
+
+.password-container i {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+}
+
+.password-container i:hover {
+    color: #555;
+}
+
+.error {
+    color:#f00;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.filled-visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rectangle {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    animation: buttonFadeIn 1s ease-out;
+}
+
+.rectangle:hover {
+    background-color: dimgray;
+    color: #fff;
+    transform: translateY(-10px);
+}
+
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adiciona classe para transição de saída */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.flex-row-f {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+.line-1,
+.line-2 {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.email-input {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.social {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza os ícones sociais horizontalmente */
+}
+
+.social a {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px; /* Espaçamento entre os ícones sociais */
+}
+
+.social a:first-child {
+    margin-right: 15px; /* Espaçamento maior à direita do primeiro ícone */
+}
+
+.social a:hover {
+    color: gray;
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .registro {
+        margin-top: 20px;
+    }
+}
+
