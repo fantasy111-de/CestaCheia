@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo"
+                 onclick="countClicks();" title="Clique para voltar à página inicial">
+            </div>
+            <div class="text-container">
+                <h1>CestaCheia</h1>
+                <p>Faça suas compras sem precisar sair de casa.</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="imagem01.png" alt="imagem 01" class="imagem01">
+        </div>
+        <div class="buttons-container">
+            <span class="already-have-account">Já possuo uma conta</span>
+            <button type="button" class="rectangle" onclick="goToLogin()">Login</button>
+            <span class="no-account">Não possuo uma conta</span>
+            <button type="button" class="rectangle" onclick="goToRegister()">Criar Conta</button>
+        </div>
+    </main>
+    <script src="inicio.js"></script>
+</body>
+</html>

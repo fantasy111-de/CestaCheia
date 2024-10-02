@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CestaCheia</title>
+    <link rel="icon" href="logo.ico" type="image/png">
+    <link rel="stylesheet" href="pagamentoPix.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="logo-container">
+                <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo">
+            </div>
+            <div class="text-container">
+                <h3>CestaCheia</h3>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+        </header>
+
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="fas fa-home-alt"></i> Home</a></li>
+                <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+            </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <main>
+            <div class="code">
+                <h2>QR CODE</h2>
+            </div>
+            <div id="contentqr" class="flex-container">
+                <div class="qrcode">
+                    <h2>R$: 0,00<br></h2>
+                    <img class="pg" src="qr.png" alt="QR Code"><br>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="qkjadkjs121d"><br>
+                    <button class="copy-id" onclick="proceedPayment()">Copiar ID</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="pagamentoPix.js"></script>
+</body>
+</html>

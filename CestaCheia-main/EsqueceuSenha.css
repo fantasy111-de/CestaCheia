@@ -1,0 +1,210 @@
+/* Estilização do header */
+header {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-container {
+    margin-bottom: 10px;
+    animation: logoScale 1s ease-out;
+}
+
+@keyframes logoScale {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo {
+    width: auto;
+    height: 90px;
+}
+
+/* Estilização do container de texto */
+.text-container {
+    text-align: left;
+}
+
+.text-container h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 48px;
+    margin: 0;
+}
+
+/* Layout principal */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza na horizontal */
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centraliza o conteúdo na horizontal */
+    align-items: center; /* Centraliza o conteúdo na horizontal */
+}
+
+/* Estilização do container da imagem */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Centraliza a imagem na coluna */
+    align-items: flex-start; /* Centraliza a imagem na coluna */
+    padding: 20px;
+    animation: imageSlide 1s ease-out;
+}
+
+@keyframes imageSlide {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.imagem04 {
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px; /* Adiciona um leve arredondamento */
+}
+
+/* Estilização do bloco "Esqueceu a senha?" */
+.esqueceu-senha {
+    background-color: #000;
+    color: #ffffff;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px; /* Largura máxima ajustada */
+    text-align: center; /* Centraliza o texto no bloco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.esqueceu-senha:hover {
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.esqueceu-senha p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilização do formulário */
+.form {
+    margin-top: 20px;
+}
+
+.form input[type="email"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form input[type="email"]:focus {
+    outline: none;
+    border-color: #57a;
+    box-shadow: 0 0 8px #57a;
+}
+
+/* Estilização das mensagens de erro */
+.error {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilização do botão retângulo */
+.rectangle {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: buttonFadeIn 1s ease-out;
+}
+
+.rectangle:hover {
+    background-color: dimgray;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilização da transição de fade out */
+.fade.out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Estilização do link */
+a {
+    font-size: 14px;
+    color: #FFF;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+}
+
+a:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Altera para layout de coluna */
+        align-items: center; /* Centraliza o conteúdo na horizontal */
+    }
+
+    .image-container {
+        width: 100%; /* Faz com que a imagem ocupe toda a largura disponível */
+    }
+
+    .esqueceu-senha {
+        max-width: 100%; /* Ajusta a largura máxima para ocupar toda a largura disponível */
+    }
+}

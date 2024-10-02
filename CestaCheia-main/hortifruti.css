@@ -1,0 +1,367 @@
+/* Reset e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    padding: 5px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Estilos adicionais */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Colocado acima de tudo, exceto da barra lateral */
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    z-index: 1001; /* Garante que o ícone esteja sempre acima de tudo */
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 60px; /* Ajuste a margem para evitar sobreposição com o botão */
+}
+
+.logo {
+    height: 30px;
+    margin-right: 4px; /* Ajuste a margem para espaçamento */
+}
+
+.text-container {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 2px 5px;
+    background-color: #fff;
+    margin-left: 25px; /* Ajuste a margem para espaçamento */
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.search-icon i {
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover i {
+    color: #f0f0f0;
+}
+
+input[type="text"] {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+    background: transparent;
+    outline: none;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #000;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 60px; /* Posicionando o menu mais abaixo */
+    left: -250px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    border-top-right-radius: 15px; /* Arredondar borda superior direita */
+    border-bottom-right-radius: 15px;
+}
+
+.sidebar.active {
+    transform: translateX(250px);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #f0f0f0;
+}
+
+.secoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Ajuste conforme necessário */
+    margin-top: 20px;
+    justify-content: center; /* Centralizar itens */
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-item button {
+    background-color: #f0f0f0;
+    color: #000;
+    border: none;
+    width: 50px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+    border-radius: 50%; /* Tornar o botão circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px; /* Espaço entre o botão e o texto */
+}
+.nav-item a {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Herda a cor do texto do elemento pai */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Aumentar margem inferior entre os itens do menu */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adiciona transições */
+
+}
+
+.nav-item button i {
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+.nav-item a button {
+    background-color: #f0f0f0;
+    color: #000;
+    border: none;
+    width: 50px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+    border-radius: 50%; /* Tornar o botão circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Aumentar margem inferior entre os itens do menu */
+}
+
+.nav-item a button i {
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+.nav-item a button:hover {
+    background-color: #000; /* Mudar a cor de fundo no hover */
+    color: #fff; /* Mudar a cor do texto no hover */
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+
+}
+
+.nav-item a button:focus {
+    outline: none; /* Remover o contorno padrão do foco */
+    background-color: #000; /* Cor de fundo quando o botão está focado */
+    color: #fff; /* Cor do texto quando o botão está focado */
+}
+
+.nav-item button.active {
+    background-color: #000; /* Cor de fundo quando o botão está ativo */
+    color: #fff; /* Cor do texto quando o botão está ativo */
+    transform: translateY(-5px); /* Efeito de elevação */
+}
+
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 5px; /* Add your preferred margin value */
+    color: #333; /* Example text color */
+    font-size: 18px; /* Example font size */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.product-price {
+    color: #000; /* Example price color */
+    font-weight: normal;
+    font-size: 14px; /* Example font size */
+    margin-top: 10px; /* Add your preferred margin value */
+    font-family: 'Inter', sans-serif;
+}
+
+.product-description {
+    font-size: 14px; /* Example font size */
+    color: #666; /* Example text color */
+    margin-top: 5px; /* Add your preferred margin value */
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Example hover effect */
+    transform: translateY(-3px); /* Example hover effect */
+}
+
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo-container {
+        margin-left: 10px; /* Ajuste a margem da logo para telas menores */
+    }
+
+    .text-container {
+        font-size: 20px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+
+    .search-bar {
+        margin-left: 10px; /* Ajuste a margem da barra de pesquisa para telas menores */
+    }
+
+    .nav-item {
+        font-size: 12px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Ajuste para duas colunas em telas menores */
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+
+    .sidebar.active {
+        transform: translateX(200px);
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo-container {
+        margin-left: 5px; /* Ajuste a margem da logo para telas menores */
+    }
+
+    .text-container {
+        font-size: 18px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+
+    .search-bar {
+        margin-left: 5px; /* Ajuste a margem da barra de pesquisa para telas menores */
+    }
+
+    .nav-item {
+        font-size: 10px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Ajuste para uma coluna em telas menores */
+        gap: 15px;
+    }
+
+    .sidebar {
+        width: 150px;
+        left: -150px;
+    }
+
+    .sidebar.active {
+        transform: translateX(150px);
+    }
+}

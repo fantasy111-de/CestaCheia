@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="EmailEnviado.css">
+    <script src="EmailEnviado.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="logo-removebg-preview.png" alt="CestaCheia Logo" class="logo">
+                </div>
+                <div class="text-container">
+                    <h1>Email enviado.</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="image-container">
+                <img src="imagem05.png" alt="Imagem 05" class="imagem05">
+            </div>
+            <div class="email-enviado">
+                <form id="form" class="form" action="AlterarSenha.html">
+                    <p class="verify-email">Verifique o seu email e digite o<br>código para alterar a senha:</p>
+                    <div class="frame">
+                        <input type="text" id="code" name="code" placeholder="Código" required><br>
+                        <span class="error" id="codeError"></span><br>
+                    </div>
+                    <div class="enviar">
+                        <button type="submit" class="rectangle">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
