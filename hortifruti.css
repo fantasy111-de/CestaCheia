@@ -191,15 +191,60 @@ input[type="text"]::placeholder {
     transition: background-color 0.3s ease;
     margin-bottom: 5px; /* Espaço entre o botão e o texto */
 }
+.nav-item a {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Herda a cor do texto do elemento pai */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Aumentar margem inferior entre os itens do menu */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adiciona transições */
+
+}
 
 .nav-item button i {
     font-size: 24px; /* Tamanho do ícone */
 }
 
-.nav-item span {
-    font-size: 14px; /* Ajuste conforme necessário */
-    color: #000; /* Cor do texto */
+.nav-item a button {
+    background-color: #f0f0f0;
+    color: #000;
+    border: none;
+    width: 50px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+    border-radius: 50%; /* Tornar o botão circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Aumentar margem inferior entre os itens do menu */
 }
+
+.nav-item a button i {
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+.nav-item a button:hover {
+    background-color: #000; /* Mudar a cor de fundo no hover */
+    color: #fff; /* Mudar a cor do texto no hover */
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+
+}
+
+.nav-item a button:focus {
+    outline: none; /* Remover o contorno padrão do foco */
+    background-color: #000; /* Cor de fundo quando o botão está focado */
+    color: #fff; /* Cor do texto quando o botão está focado */
+}
+
+.nav-item button.active {
+    background-color: #000; /* Cor de fundo quando o botão está ativo */
+    color: #fff; /* Cor do texto quando o botão está ativo */
+    transform: translateY(-5px); /* Efeito de elevação */
+}
+
+
 
 .product-grid {
     display: grid;
@@ -242,6 +287,8 @@ input[type="text"]::placeholder {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Example hover effect */
     transform: translateY(-3px); /* Example hover effect */
 }
+
+
 
 @media (max-width: 768px) {
     .header {
