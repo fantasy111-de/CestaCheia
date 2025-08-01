@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho</title>
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <link rel="stylesheet" href="style/carrinho.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-container">
+                <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="50">
+            </div>
+            <div class="text-container">
+                <h3>CestaCheia</h3>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="material-icons-outlined">home</i> Home</a></li>
+                <li><a href="carrinho.html"><i class="material-icons-outlined">shopping_cart</i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="material-icons-outlined">account_circle</i> Perfil</a></li>
+                <li><a href="configuracoes.html"><i class="material-icons-outlined">settings</i> Configurações</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Cart Page Header -->
+        <div class="page-header">
+            <h1>Meu Carrinho</h1>
+            <p class="subtitle">Revise seus produtos selecionados</p>
+        </div>
+
+        <!-- Cart Container -->
+        <div class="cart-container" id="cartContainer">
+            <div class="cart-items" id="cartItems">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <div class="order-header">
+                    <h3>Resumo do Pedido</h3>
+                </div>
+                <div class="summary-item">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Frete</span>
+                    <span>R$ 5,00</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total</span>
+                    <span id="total">R$ 5,00</span>
+                </div>
+                <button class="checkout-button">Finalizar Compra</button>
+            </div>
+        </div>
+
+        <!-- Empty Cart -->
+        <div class="empty-cart" id="emptyCart" style="display: none;">
+            <i class="material-icons-outlined">shopping_cart</i>
+            <h2>Seu carrinho está vazio</h2>
+            <p>Adicione itens para começar suas compras</p>
+            <button onclick="window.location.href='menuinicial.html'">Continuar Comprando</button>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartItems = [
+            { id: 1, name: "Picanha Bovina", price: 89.90, quantity: 1, image: "imagens/picanha.jpg" },
+            { id: 2, name: "Contra Filé", price: 49.90, quantity: 2, image: "imagens/contra-file.jpg" }
+        ];
+        
+        const cartContainer = document.getElementById('cartContainer');
+        const emptyCart = document.getElementById('emptyCart');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const subtotalElem = document.getElementById('subtotal');
+        const totalElem = document.getElementById('total');
+        const shippingCost = 5.00;
+    
+        // Função para aumentar a quantidade
+        function increaseQuantity(itemId) {
+            const item = cartItems.find(item => item.id === itemId);
+            if (item) {
+                item.quantity += 1;
+                updateCart();
+            }
+        }
+    
+        // Função para diminuir a quantidade
+        function decreaseQuantity(itemId) {
+            const item = cartItems.find(item => item.id === itemId);
+            if (item && item.quantity > 1) {
+                item.quantity -= 1;
+                updateCart();
+            }
+        }
+    
+        // Função para remover item
+        function removeItem(itemId) {
+            const index = cartItems.findIndex(item => item.id === itemId);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+                updateCart();
+                checkEmptyCart();
+            }
+        }
+    
+        // Função para verificar se o carrinho está vazio
+        function checkEmptyCart() {
+            if (cartItems.length === 0) {
+                cartContainer.style.display = 'none';
+                emptyCart.style.display = 'block';
+            } else {
+                cartContainer.style.display = 'grid';
+                emptyCart.style.display = 'none';
+            }
+        }
+    
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+    
+            cartItems.forEach(item => {
+                const cartItemElem = document.createElement('div');
+                cartItemElem.classList.add('cart-item');
+                cartItemElem.innerHTML = `
+                    <div class="cart-item-content">
+                        <img src="${item.image}" alt="${item.name}" class="thumbnail">
+                        <div class="item-details">
+                            <h2>${item.name}</h2>
+                            <p class="price">R$ ${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="quantity-controls">
+                            <i class="fa-solid fa-circle-minus" data-id="${item.id}"></i>
+                            <span>${item.quantity}</span>
+                            <i class="fa-solid fa-circle-plus" data-id="${item.id}"></i>
+                        </div>
+                        <i class="fa-solid fa-trash-can" data-id="${item.id}"></i>
+                    </div>
+                `;
+    
+                // Adicionar event listeners para os botões
+                const minusBtn = cartItemElem.querySelector('.fa-circle-minus');
+                const plusBtn = cartItemElem.querySelector('.fa-circle-plus');
+                const trashBtn = cartItemElem.querySelector('.fa-trash-can');
+    
+                minusBtn.addEventListener('click', () => decreaseQuantity(item.id));
+                plusBtn.addEventListener('click', () => increaseQuantity(item.id));
+                trashBtn.addEventListener('click', () => removeItem(item.id));
+    
+                // Adicionar estilos de cursor e hover
+                minusBtn.style.cursor = 'pointer';
+                plusBtn.style.cursor = 'pointer';
+                trashBtn.style.cursor = 'pointer';
+    
+                cartItemsContainer.appendChild(cartItemElem);
+                subtotal += item.price * item.quantity;
+            });
+    
+            subtotalElem.textContent = `R$ ${subtotal.toFixed(2)}`;
+            totalElem.textContent = `R$ ${(subtotal + shippingCost).toFixed(2)}`;
+        }
+    
+        // Inicializar o carrinho
+        updateCart();
+        checkEmptyCart();
+    
+        // Sidebar Toggle
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+    
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+        });
+    
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

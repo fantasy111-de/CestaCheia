@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    padding: 5px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Estilos adicionais */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Colocado acima de tudo, exceto da barra lateral */
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 10px;
+    z-index: 1001; /* Garante que o ícone esteja sempre acima de tudo */
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 5px; /* Ajuste a margem para evitar sobreposição com o botão */
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+    /* Ajuste a margem para espaçamento */
+}
+
+.text-container {
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.text-container-2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    top: -0px; /* Ajuste conforme necessário */
+    z-index: 20; /* Certifique-se de que está acima de ".supermercados" */
+    background-color: #fff; /* Adicione um fundo branco para melhor visibilidade */
+    padding: 10px; /* Adicione padding para espaçamento */
+    border-radius: 10px; /* Adicione bordas arredondadas para um melhor visual */
+}
+
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 2px 5px;
+    background-color: #fff;
+    margin-left: 25px;
+    max-width: 400px;
+    padding: 0 10px;
+    
+    --border-radius: 20px;
+    --background: #f4f4f4;
+    --placeholder-color: #666;
+    --icon-color: #666;
+    --box-shadow: none; /* Ajuste a margem para espaçamento */
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.search-icon i {
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover i {
+    color: #f0f0f0;
+}
+
+input[type="text"] {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+    background: transparent;
+    outline: none;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #000;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 60px; /* Posicionando o menu mais abaixo */
+    left: -250px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    border-top-right-radius: 15px; /* Arredondar borda superior direita */
+    border-bottom-right-radius: 15px;
+}
+
+.sidebar.active {
+    transform: translateX(250px);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #f0f0f0;
+}
+
+.supermercados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsivo */
+    gap: 30px;
+    margin-top: 90px;
+}
+
+.market-name {
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.market-name:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Example hover effect */
+    transform: translateY(-3px); /* Example hover effect */
+}
+
+.secoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Aumente o gap para ajustar o espaçamento entre os itens */
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px; /* Aumenta a margem inferior entre os itens */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item a button {
+    background-color: #f0f0f0;
+    color: #000;
+    border: none;
+    width: 60px; /* Aumenta a largura do botão */
+    height: 60px; /* Aumenta a altura do botão */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.nav-item a button i {
+    font-size: 30px; /* Aumenta o tamanho do ícone */
+}
+
+.nav-item a button:hover {
+    background-color: #000;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.nav-item a button:focus {
+    outline: none;
+    background-color: #000;
+    color: #fff;
+}
+
+
+.markets-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards caiam para a linha de baixo se o espaço não for suficiente */
+    gap: 20px; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza os cards no container */
+    padding: 20px;
+}
+
+.categorias h2  {
+    font-family: 'Fredoka', sans-serif;
+    padding: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    
+    left: 10px;
+}
+
+/* Estilos gerais para o card */
+.market-card {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.market-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da imagem */
+.market-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Cabeçalho do card */
+.market-header {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.market-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333333;
+    margin: 0;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.market-subtitle {
+    font-size: 0.9em;
+    color: #777777;
+    margin-top: 5px;
+}
+
+/* Conteúdo do card */
+.market-content {
+    padding: 15px;
+}
+
+.market-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555555;
+}
+
+.market-info p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 0.85em;
+    color: #555;
+}
+
+/* Ícones com espaçamento */
+.market-info p:before {
+    margin-right: 6px;
+    font-size: 1.1em;
+}
+
+/* Ícone de tempo de entrega */
+
+/* Contêiner para os ícones e textos */
+.market-info {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os ícones */
+    align-items: center; /* Alinhar ícones e texto verticalmente */
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+}
+.market-header h3 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilização opcional para o ícone e o texto */
+.market-info p {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre o ícone e o texto */
+    margin: 0; /* Remove margem para melhor alinhamento */
+}
+
+.market-info i {
+    font-size: 20px; /* Aumente o tamanho do ícone conforme necessário */
+    color: #555; /* Cor do ícone */
+}
+
+/* Estilo de transição */
+.market-info p:hover {
+    color: #333333;
+}
+
+/* Estilo do cabeçalho que ocupa a largura total da tela */
+.page-header {
+    margin-top: 60px;
+    position: fixed;
+    top: 0; /* Fixa o cabeçalho no topo da tela */
+    left: 0;
+    right: 0;
+     /* Garante que o cabeçalho fique acima de outros elementos */
+    background-color: #000;
+    color: #fff;
+    width: 100%; /* O cabeçalho agora ocupa a largura total da tela */
+    padding: 30px 20px;
+    border-bottom-left-radius: 20px; /* Arredonda o canto inferior esquerdo */
+    border-bottom-right-radius: 24px; /* Arredonda o canto inferior direito */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Adiciona uma leve sombra para profundidade */
+}
+
+/* Estilos de texto */
+.page-header h1 {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.page-header p {
+    font-family: 'Inter', sans-serif;
+    color: #757575;
+    margin: 5px 0 0;
+}
+
+.market-card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.market-card:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Adiciona um espaçamento para o conteúdo da página não ficar sob o cabeçalho */
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .search-bar {
+        width: 200px;
+    }
+
+    .nav-item a button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .search-bar {
+        width: 150px;
+    }
+
+    .nav-item a button {
+        width: 30px;
+        height: 30px;
+    }
+}

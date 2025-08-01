@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="style/SenhaAlterada.css">
+    
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo">
+                </div>
+                <div class="text-container">
+                    <h1>Senha Alterada.</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="image-container">
+                <img src="imagens/imagem07.png" alt="Imagem 07" class="imagem07">
+            </div>
+            <div class="return-login">
+                <button type="button" class="rectangle" onclick="window.location.href='login.html'">Retornar ao Login</button><br>
+            </div>
+        </main>
+    </div>
+    <script>
+        // SenhaAlterada.js
+
+// Aguarda até que o conteúdo da página esteja completamente carregado
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona o botão com a classe 'rectangle' e adiciona um evento de clique
+    var returnButton = document.querySelector(".rectangle");
+
+    // Verifica se o botão foi encontrado
+    if (returnButton) {
+        // Adiciona um ouvinte de evento de clique ao botão
+        returnButton.addEventListener("click", function() {
+            // Redireciona para a página de login
+            window.location.href = 'login.html';
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

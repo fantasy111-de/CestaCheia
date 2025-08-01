@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <link rel="stylesheet" href="style/configuracoes.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-container">
+                <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="50">
+            </div>
+            <div class="text-container">
+                <h3>CestaCheia</h3>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+        </header>
+
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="material-icons-outlined">home</i> Home</a></li>
+                <li><a href="carrinho.html"><i class="material-icons-outlined">shopping_cart</i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="material-icons-outlined">account_circle</i> Perfil</a></li>
+                <li><a href="configuracoes.html"><i class="material-icons-outlined">settings</i> Configurações</a></li>
+            </ul>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="page-header">
+            <h1>Configurações</h1>
+            <p class="subtitle">Personalize sua experiência.</p>
+        </div>
+
+        <div class="settings-divider">Notificações</div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-bell"></i>
+                <div class="section-title">Notificações Push</div>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="section-title">E-mails promocionais</div>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="settings-divider">Aparência</div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-moon"></i>
+                <div class="section-title">Tema Escuro</div>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-font"></i>
+                <div class="section-title">Tamanho da Fonte</div>
+            </div>
+            <select>
+                <option>Média</option>
+                <option>Pequena</option>
+                <option>Grande</option>
+            </select>
+        </div>
+
+        <div class="settings-divider">Privacidade e Segurança</div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-key"></i>
+                <div class="section-title">Alterar Senha</div>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+        
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-lock"></i>
+                <div class="section-title">Configurações de Privacidade</div>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+
+        <div class="settings-divider">Sobre</div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-file-lines"></i>
+                <div class="section-title">Termos de Uso</div>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+        
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-shield"></i>
+                <div class="section-title">Política de Privacidade</div>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <i class="fa-solid fa-circle-info"></i>
+                <div class="section-title">Versão do App: 1.0.0</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        sidebarToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        });
+
+        overlay.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="style/secoes.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-container">
+                <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="30">
+            </div>
+            <div class="text-container">
+                <h3>CestaCheia</h3>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+        </header>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="material-icons-outlined">home</i> Home</a></li>
+                <li><a href="carrinho.html"><i class="material-icons-outlined">shopping_cart</i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="material-icons-outlined">account_circle</i> Perfil</a></li>
+                <li><a href="configuracoes.html"><i class="material-icons-outlined">settings</i> Configurações</a></li>
+            </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="secoes">
+            <div class="nav-item">
+                <a href="hortifruti.html"><button><i class="fas fa-apple-alt"></i></button></a>
+                <span>Hortifruti</span>
+            </div>
+            <div class="nav-item">
+                <a href="laticinios.html"><button><i class="fas fa-cheese"></i></button></a>
+                <span>Laticínios e<br>Ovos</span>
+            </div>
+            <div class="nav-item">
+                <a href="congelados.html"><button><i class="fas fa-snowflake"></i></button></a>
+                <span>Congelados</span>
+            </div>
+            <div class="nav-item">
+                <a href="mercearia.html"><button><i class="fas fa-shopping-basket"></i></button></a>
+                <span>Mercearia</span>
+            </div>
+            <div class="nav-item">
+                <a href="acougue.html"><button><i class="fas fa-drumstick-bite"></i></button></a>
+                <span>Açougue</span>
+            </div>
+            <div class="nav-item">
+                <a href="bebidas.html"><button><i class="fas fa-wine-bottle"></i></button></a>
+                <span>Bebidas</span>
+            </div>
+            <div class="nav-item">
+                <a href="limpeza.html"><button><i class="fas fa-soap"></i></button></a>
+                <span>Limpeza</span>
+            </div>
+            <div class="nav-item">
+                <a href="higiene.html"><button><i class="fas fa-hand-sparkles"></i></button></a>
+                <span>Higiene</span>
+            </div>
+        </div>
+        </div>
+        <main id="mainContent">
+            <div class="product-grid" id="productGrid">
+                <!-- Os produtos serão carregados dinamicamente aqui -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function fetchProdutos() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/produto/');
+                const produtos = await response.json();
+        
+                const productGrid = document.getElementById('productGrid');
+                productGrid.innerHTML = '';
+        
+                produtos.forEach(produto => {
+
+                    if (produto.tipo === 'laticinios') {
+                        const productCard = `
+                            <div class="product-card">
+                                <img src="http://127.0.0.1:8000${produto.imagem}" alt="${produto.nome}" class="product-image" width="100">
+                                <div class="product-name">${produto.nome}</div>
+                                <div class="product-description">${produto.descricao}</div>
+                                <div class="product-price">R$ ${produto.valor}</div>
+
+                                <div class="add-remove-container">
+                                    <button class="quantity-btn" onclick="changeQuantity(${produto.id}, 'add')">+</button>
+                                    <div class="quantity" id="quantity-${produto.id}">0</div>
+                                    <button class="quantity-btn" onclick="changeQuantity(${produto.id}, 'remove')">-</button>
+                                </div>
+                            </div>
+                        `;
+                        productGrid.innerHTML += productCard;
+                    }
+                });
+            } catch (error) {
+                console.error('Erro ao buscar os produtos:', error);
+            }
+        }
+        
+        
+        // Chama a função ao carregar a página
+        window.onload = fetchProdutos;
+        document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona o botão de alternância da barra lateral e a barra lateral
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    // Alterna a classe 'active' na barra lateral quando o botão é clicado
+    sidebarToggle.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
+    });
+
+    // Seleciona todos os botões dentro de '.nav-item'
+    const buttons = document.querySelectorAll('.nav-item button');
+
+    // Itera sobre cada botão e adiciona um event listener para o clique
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove a classe 'active' de todos os botões
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Adiciona a classe 'active' ao botão clicado
+            this.classList.add('active');
+        });
+    });
+});
+    </script>
+</body>
+</html>

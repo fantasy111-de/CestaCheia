@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+}
+
+header {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.header-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que os itens se reagrupem em telas menores */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    animation: logoScale 1s ease-out;
+}
+@keyframes logoScale {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+}
+
+.text-container {
+    text-align: left;
+}
+
+h1 {
+    color: #000;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0;
+}
+
+p {
+    font-size: 20px;
+    color: #555;
+    margin-top: 5px;
+    font-family: 'Fredoka', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: imageSlide 1s ease-out;
+}
+
+@keyframes imageSlide {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.imagem01 {
+    max-width: 100%;
+    height: auto;
+}
+
+.buttons-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Botão responsivo */
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    animation: buttonFadeIn 1s ease-out;
+}
+
+button:hover {
+    background-color: #444;
+    transform: translateY(-3px);
+}
+
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Adiciona classe para transição de saída */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.already-have-account, .no-account {
+    color: #808080;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .buttons-container {
+        width: 100%; /* Faz com que os botões ocupem toda a largura disponível */
+    }
+
+    button {
+        width: 100%; /* Faz com que os botões ocupem toda a largura disponível */
+    }
+
+    h1 {
+        font-size: 40px; /* Ajusta o tamanho do título */
+    }
+
+    p {
+        font-size: 18px; /* Ajusta o tamanho do parágrafo */
+    }
+}
+
+/* Media query para telas muito pequenas */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 30px; /* Ajusta o tamanho do título */
+    }
+
+    p {
+        font-size: 16px; /* Ajusta o tamanho do parágrafo */
+    }
+
+    .header-content {
+        gap: 10px; /* Reduz o espaço entre os itens no cabeçalho */
+    }
+
+    button {
+        padding: 10px 20px; /* Ajusta o padding dos botões */
+        font-size: 18px; /* Ajusta o tamanho da fonte dos botões */
+    }
+}

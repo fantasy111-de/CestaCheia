@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="style/perfil.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="50">
+                <div class="text-container">
+                    <h3>CestaCheia</h3>
+                </div>
+            </div>
+            <div class="search-bar">
+                <button class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" placeholder="Pesquisar">
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="menuinicial.html"><i class="material-icons-outlined">home</i> Home</a></li>
+                <li><a href="carrinho.html"><i class="material-icons-outlined">shopping_cart</i> Carrinho</a></li>
+                <li><a href="perfil.html"><i class="material-icons-outlined">account_circle</i> Perfil</a></li>
+                <li><a href="configuracoes.html"><i class="material-icons-outlined">settings</i> Configurações</a></li>
+            </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="page-header">
+            <div class="profile-avatar">
+                <img src="imagens/user-circle.svg" alt="Foto de perfil" class="avatar">
+                <button class="change-photo-button" onclick="changePhoto()">
+                    <i class="fa-solid fa-camera"></i>
+                </button>
+            </div>
+                <h1 id="boas-vindas">Olá, Vivi!</h1>
+                <p class="email" id="userEmail">usuario@email.com</p>
+        </div>
+        <div class="profile-options">
+            <!-- Informações Pessoais -->
+            <div class="profile-card" onclick="editProfile()">
+                <div class="profile-item">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="profile-label">
+                        <h2>Informações Pessoais</h2>
+                        <p>Alterar nome, telefone e email</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Endereços -->
+            <div class="profile-card" onclick="editAddress()">
+                <div class="profile-item">
+                    <i class="fa-solid fa-location-pin"></i>
+                    <div class="profile-label">
+                        <h2>Endereços</h2>
+                        <p>Gerenciar endereços de entrega</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Histórico de Pedidos -->
+            <div class="profile-card" onclick="window.location.href='/pedidos'">
+                <div class="profile-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <div class="profile-label">
+                        <h2>Histórico de Pedidos</h2>
+                        <p>Ver pedidos anteriores</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Sair -->
+            <div class="profile-card logout-card" onclick="logout()">
+                <div class="profile-item">
+                    <i class="fa-solid fa-door-closed"></i>
+                    <div class="profile-label">
+                        <h2>Sair da Conta</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.overlay');
+    const navLinks = document.querySelectorAll('.sidebar ul li a');
+
+    // Função para abrir a barra lateral
+    function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.style.display = 'block';
+    }
+
+    // Função para fechar a barra lateral
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.style.display = 'none';
+    }
+
+    // Evento de clique no botão de alternância da barra lateral
+    sidebarToggle.addEventListener('click', () => {
+        if (sidebar.classList.contains('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Evento de clique no overlay para fechar a barra lateral
+    overlay.addEventListener('click', closeSidebar);
+
+    // Função para lidar com a busca (para fins de demonstração)
+    function handleSearch(event) {
+        event.preventDefault();
+        const searchInput = document.querySelector('.search-bar input[type="text"]');
+        const query = searchInput.value;
+        console.log('Buscando por:', query);
+        // Adicione a lógica de busca aqui
+    }
+
+    // Evento de clique no ícone de busca
+    const searchIcon = document.querySelector('.search-icon');
+    searchIcon.addEventListener('click', handleSearch);
+
+    // Evento de pressionar Enter na barra de pesquisa
+    const searchInput = document.querySelector('.search-bar input[type="text"]');
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            handleSearch(event);
+        }
+    });
+
+    // Gerenciamento do estado ativo do link da barra lateral
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(otherLink => otherLink.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+
+    // Mantém os ícones visíveis mesmo quando a barra lateral não está ativa
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        const icon = item.querySelector('i');
+        icon.style.visibility = 'visible';
+    });
+});
+
+    </script>
+</body>
+</html>

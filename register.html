@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <title>CestaCheia</title>
+
+    <!-- Fontes e ícones -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/register.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo" height="30">
+                </div>
+                <div class="text-container">
+                    <h1>Seja bem-vindo<br> ao Cesta Cheia!</h1>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="imagem03">
+                <img src="imagens/imagem03.png" alt="Imagem 03" class="imagem03">
+            </div>
+
+            <div class="registro">
+                <h2>Criar Conta</h2>
+                <div class="social">
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-facebook"></a>
+                </div>
+                <div class="flex-row-f">
+                    <div class="line-1"></div>
+                    <span class="email-input">Ou use seu email:</span>
+                    <div class="line-2"></div>
+                </div>
+
+                <form id="form" class="form" action="menuinicial.html">
+                    <input type="text" id="nome" name="nome" placeholder="Nome" required><br>
+                    <span class="error" id="nomeError"></span><br>
+
+                    <input type="email" id="email" name="email" placeholder="Email" required><br>
+                    <span class="error" id="emailError"></span><br>
+
+                    <div class="password-container">
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                        <i class="fa fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                    </div>
+                    <span class="error" id="passwordError"></span><br>
+
+                    <div class="filled-visible">
+                        <button type="submit" class="rectangle">Cadastrar</button><br>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            let formValid = true; // Variável para controlar se o formulário é válido
+
+            // Função para exibir mensagens de erro
+            const showError = (id, message) => {
+                const errorElement = document.getElementById(id);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                }
+            };
+
+            // Função para validar um campo genérico
+            const validateField = (value, id, errorMessage, validationFunction = null) => {
+                if (!value.trim()) {
+                    showError(id, errorMessage);
+                    formValid = false;
+                } else if (validationFunction && !validationFunction(value)) {
+                    showError(id, errorMessage);
+                    formValid = false;
+                } else {
+                    showError(id, ''); // Limpa mensagem de erro se válido
+                }
+            };
+
+            // Limpar mensagens de erro antes de validar
+            showError('nomeError', '');
+            showError('emailError', '');
+            showError('passwordError', '');
+
+            // Validação do nome
+            const nome = document.getElementById('nome').value;
+            validateField(nome, 'nomeError', 'Nome é obrigatório');
+
+            // Validação do email usando uma expressão regular básica
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            validateField(email, 'emailError', 'Email inválido', value => emailPattern.test(value));
+
+            // Validação da senha - pelo menos 6 caracteres
+            const senha = document.getElementById('senha').value;
+            validateField(senha, 'passwordError', 'A senha deve ter pelo menos 6 caracteres', value => value.length >= 6);
+
+            // Se o formulário for válido, adicionar a classe 'fade-out' ao body e redirecionar
+            if (formValid) {
+                document.body.classList.add('fade-out');
+
+                setTimeout(() => {
+                    window.location.href = 'menuinicial.html';
+                }, 500); // Tempo de espera para a transição (em milissegundos)
+            }
+        });
+
+        // Função para alternar a visibilidade da senha
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('senha');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        }
+
+        // Event listener para o ícone de olho (mostrar senha)
+        document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+    </script>
+</body>
+
+</html>

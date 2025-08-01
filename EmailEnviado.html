@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.ico" type="image/png">
+    <title>CestaCheia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <link rel="stylesheet" href="style/EmailEnviado.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="imagens/logo-removebg-preview.png" alt="CestaCheia Logo" class="logo">
+                </div>
+                <div class="text-container">
+                    <h1>Email enviado.</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="image-container">
+                <img src="imagens/imagem05.png" alt="Imagem 05" class="imagem05">
+            </div>
+            <div class="email-enviado">
+                <form id="form" class="form" action="AlterarSenha.html">
+                    <p class="verify-email">Verifique o seu email e digite o<br>código para alterar a senha:</p>
+                    <div class="frame">
+                        <input type="text" id="code" name="code" placeholder="Código" required><br>
+                        <span class="error" id="codeError"></span><br>
+                    </div>
+                    <div class="enviar">
+                        <button type="submit" class="rectangle">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form");
+    const codeInput = document.getElementById("code");
+    const codeError = document.getElementById("codeError");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Impede o envio padrão do formulário
+
+        if (validateCode()) { // Verifica se o código é válido
+            document.body.classList.add('fade-out'); // Adiciona a classe de fade-out ao corpo da página
+
+            // Aguarda um breve período antes de redirecionar para a nova página
+            setTimeout(() => {
+                window.location.href = 'AlterarSenha.html';
+            }, 500); // Tempo de espera para a transição (em milissegundos)
+        }
+    });
+
+    function validateCode() {
+        const code = codeInput.value.trim(); // Obtém o valor do input e remove espaços em branco extras
+        if (code.length !== 6) {
+            codeError.textContent = "O código deve ter exatamente 6 caracteres."; // Mensagem de erro
+            return false; // Retorna falso se a validação falhar
+        } else {
+            codeError.textContent = ""; // Limpa o texto de erro se a validação for bem-sucedida
+            return true; // Retorna verdadeiro se a validação passar
+        }
+    }
+});
+    </script>
+</body>
+</html>

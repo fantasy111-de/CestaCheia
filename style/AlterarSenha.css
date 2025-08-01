@@ -1,0 +1,259 @@
+/* Estilização do header */
+header {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-container {
+    margin-bottom: 10px;
+    animation: logoScale 1s ease-out;
+}
+
+@keyframes logoScale {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo {
+    width: auto;
+    height: 90px;
+}
+
+/* Estilização do container de texto */
+.text-container {
+    text-align: left;
+}
+
+.text-container h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 48px;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Alinha a imagem à esquerda */
+    align-items: center;
+    animation: imageSlide 1s ease-out;
+    margin-bottom: 20px;
+}
+
+@keyframes imageSlide {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.imagem04 {
+    max-width: 100%;
+    height: auto;
+}
+
+.alterar-senha {
+    background-color: #000;
+    color: #FFFFFF;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Diminui a margem inferior */
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Centraliza o texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alterar-senha:hover {
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.alterar-senha p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form {
+    margin-top: 10px;
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 300px; /* Largura máxima do formulário */
+}
+
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input[type="password"]:focus {
+    outline: none;
+    border-color: #57a;
+    box-shadow: 0 0 8px #57a;
+}
+
+.frame-1,
+.frame-2 {
+    position: relative;
+    margin-bottom: 20px; /* Espaçamento entre os campos de senha */
+}
+
+.frame-1 input,
+.frame-2 input {
+    padding-right: 30px;
+}
+
+.frame-1 i,
+.frame-2 i {
+    position: absolute;
+    right: 0px; /* Ajusta o ícone para não colidir com a borda */
+    top: 30%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+}
+
+.frame-1 i:hover,
+.frame-2 i:hover {
+    color: #555;
+}
+
+.password-visible {
+    width: calc(100% - 40px); /* Ajusta a largura com base no ícone */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.error {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.alterar-senha {
+    background-color: #000;
+    color: #FFFFFF;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Diminui a margem inferior */
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Centraliza o texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alterar-senha:hover {
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rectangle {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: buttonFadeIn 1s ease-out;
+    align-self: center; /* Centraliza o botão dentro da seção */
+}
+
+.rectangle:hover {
+    background-color: dimgray;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+@keyframes buttonFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilização da transição de fade out */
+.fade.out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .image-container {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .alterar-senha {
+        margin: 30px 0;
+    }
+
+    .alterar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .password-visible {
+        width: calc(100% - 30px); /* Ajusta a largura com base no ícone */
+    }
+}
